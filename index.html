@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm API Project - COMP229</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            overflow-x: auto;
+        }
+        img {
+            max-width: 100%;
+        }
+        .important-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Midterm API Project - COMP229</h1>
+
+    <h2>Project Overview</h2>
+    <p>Complete the RESTful API that manages a video game library. The Express server is already configured on port <code>3000</code>, and a starter set of game objects is ready to be manipulated—your job is to implement the missing endpoint logic.</p>
+
+    <h3>Endpoints</h3>
+    <ul>
+        <li><strong>GET /api/games</strong> – Retrieve the full list of games.</li>
+        <li><strong>GET /api/games/filter?genre=[genre name]</strong> – Retrieve games that match a genre.</li>
+        <li><strong>GET /api/games/:id</strong> – Retrieve a game by its index (ID).</li>
+        <li><strong>POST /api/games</strong> – Add a new game to the library.</li>
+        <li><strong>PUT /api/games/:id</strong> – Update a game at a specific index (ID).</li>
+        <li><strong>DELETE /api/games/:id</strong> – Remove a game by its index (ID).</li>
+    </ul>
+    <p>The endpoint signatures are already defined for you; focus on building solid request handling in <code>server.js</code>.</p>
+
+    <h3>Array Structure</h3>
+    <p>Here is an example of the structure you will be working with:</p>
+    <img src="images/array-example.jpg" alt="Array Example">
+
+    <div class="important-box">
+        <h2>🎮 Personalized Requirements</h2>
+        <h3>Customize the starter library using your Student ID.</h3>
+        <p><strong>Add two games</strong> to the initial list, following the rule for the last digit of your student ID:</p>
+        <table>
+            <tr>
+                <th>Last Digit</th>
+                <th>What to Add</th>
+            </tr>
+            <tr>
+                <td>0–1</td>
+                <td>2 games released between <strong>1990–1999</strong></td>
+            </tr>
+            <tr>
+                <td>2–3</td>
+                <td>2 games released between <strong>2000–2009</strong></td>
+            </tr>
+            <tr>
+                <td>4–5</td>
+                <td>2 games released between <strong>2010–2019</strong></td>
+            </tr>
+            <tr>
+                <td>6–7</td>
+                <td>2 games released between <strong>2020–2024</strong></td>
+            </tr>
+            <tr>
+                <td>8–9</td>
+                <td>2 <strong>indie</strong> games (any year)</td>
+            </tr>
+        </table>
+        <p><strong>Example:</strong> Student ID <code>301234567</code> ends in 7, so add two games released between 2020 and 2024.</p>
+        <h4>Game object format</h4>
+        <pre>{
+  title: 'Game Title',
+  genre: 'Genre',
+  platform: 'Primary Platform',
+  year: YYYY,
+  developer: 'Studio Name'
+}</pre>
+        <p><strong>Screenshot Reminder:</strong> At least one API response must show the complete seven-game library (starter list plus your two additions).</p>
+    </div>
+
+    <h3>Testing Snapshot</h3>
+    <p>Here is a sample layout of a successful Postman test:</p>
+    <img src="images/postman-example.jpg" alt="Postman Example">
+
+    <h2>Setup Instructions</h2>
+    <ol>
+        <li><strong>Clone the repository:</strong> <a href="https://github.com/CENT-COL/COMP229-MIDTERM" target="_blank">https://github.com/CENT-COL/COMP229-MIDTERM</a></li>
+        <li><strong>Install dependencies:</strong>
+            <pre>npm install</pre>
+        </li>
+        <li><strong>Run the server:</strong>
+            <pre>npm start</pre>
+            <p>The server runs on port <code>3000</code>.</p>
+        </li>
+        <li><strong>Test every endpoint:</strong>
+            <ul>
+                <li>Use Postman, Thunder Client, Insomnia, or a similar tool.</li>
+                <li>Show the request URL, method, headers, and body (when applicable).</li>
+                <li>Capture a successful response with the expected data and status code.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Submission Requirements</h2>
+    <ol>
+        <li><strong>Screenshots:</strong>
+            <ul>
+                <li>One per endpoint (six total).</li>
+                <li>Visible request details and successful responses.</li>
+                <li>At least one screenshot displaying the complete seven-game library.</li>
+            </ul>
+            <h4>Filename format:</h4>
+            <p><code>[StudentID]_[LastName]_[EndpointNumber]_[Method].png</code></p>
+            <p>Example: <code>301234567_Smith_01_GET_ALL.png</code></p>
+        </li>
+        <li><strong>Code submission:</strong>
+            <ul>
+                <li>Zip your project files.</li>
+                <li>Share the GitHub repository link containing your work.</li>
+                <li>Ensure the personalized games appear in your source code and responses.</li>
+            </ul>
+        </li>
+        <li><strong>Optional reflection:</strong>
+            <ul>
+                <li>Write a short paragraph describing how you validated each endpoint and any edge cases you explored.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="warning-box">
+        <h2>⚠️ Academic Integrity Notice</h2>
+        <p>Submissions are reviewed for:</p>
+        <ul>
+            <li>Personalized additions that align with your student ID.</li>
+            <li>Accurate screenshot naming conventions.</li>
+            <li>Unique game selections across submissions.</li>
+        </ul>
+        <p>Potential irregularities will be investigated under the department's academic integrity policy.</p>
+    </div>
+
+    <h2>Good Luck!</h2>
+    <p>Keep your code clean, validate inputs, handle errors thoughtfully, and have fun building the API.</p>
+</body>
+</html>
